@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+
+    background-color: deeppink;
+    margin-bottom: 50px;
+}
+
+.grid-item {
+    background-color: deepskyblue;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#grid-container1 {
+    /* simple grid layout with 3 columns */
+    grid-template-columns: auto auto auto;
+}
+
+#grid-container2 {
+    /* filling by column instead of row */
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-auto-flow: column;
+}
+
+#grid-container3 {
+    grid-template-columns: 100px 200px 400px;
+    justify-content: space-between;
+}
+
+#grid-container4 {
+    /* samma sak som: auto auto auto */
+    grid-template-columns: repeat(3, auto);
+}
+
+/* nth-child väljer en i ordningen. nth-child(3) väljer tredje */
+#grid-container4 div:nth-child(1) {
+    /* grid-column anger startkolumn och till slutkolumn (inte till och med) med / emellan */
+    grid-column: 1 / 3;
+    background-color: gold;
+}
+
+#grid-container4 div:nth-child(4) {
+    grid-column: 3 / 4;
+}
+
+#grid-container4 div:nth-child(5) {
+    /* item startar på rad 3 och sträcker sig till 5 */
+    grid-row: 3 / 5;
+    /* alternativt syntax */
+    /* grid-row: 3 / span 2; */
+}
+
+#grid-container5 {
+    grid-template-areas: 
+        'header header header header header'
+        'menu main main main aside'
+        'footer footer footer footer aside';
+}
+#grid-container5 div:nth-child(1) {
+    grid-area: header;
+}
+#grid-container5 div:nth-child(2) {
+    grid-area: menu;
+}
+#grid-container5 div:nth-child(3) {
+    grid-area: main;
+}
+#grid-container5 div:nth-child(4) {
+    grid-area: aside;
+}
+#grid-container5 div:nth-child(5) {
+    grid-area: footer;
+}
+
+#grid-container6 {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}

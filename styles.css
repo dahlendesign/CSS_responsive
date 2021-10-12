@@ -17,15 +17,16 @@ section {
     align-items: center;
 }
 
+header {
+    width: 100%;
+    background-color: #B2D6FF;
+}
+
 nav {
     width: 100%;
     background-color: #5995DA;
     height: 80px;
-}
-
-header {
-    width: 100%;
-    background-color: #B2D6FF;
+    display: none;
 }
 
 .content {
@@ -47,4 +48,42 @@ header {
 
 .feature-3 {
     background-color: #C8C6FA;
+}
+
+/* Vanlig media regel för mobil (stående) */
+@media only screen and (max-width: 400px) {
+    .content {
+        background-color: deeppink;
+    }
+}
+
+/* Ipads/tablets */
+@media only screen and (min-width: 401px) and (max-width: 960px){
+    .content {
+        background-color: firebrick;
+    }
+}
+
+/* Desktop = stora skärmar */
+@media only screen and (min-width: 961px){
+    body {
+        width: 900px;
+    }
+
+    nav {
+        display: block;
+    }
+
+    .content {
+        background-color: mediumturquoise;
+        order: 2;
+    }
+    
+    .columns{
+        width: 33%;
+    }
+    .sign-up {
+        order: 1;
+        width: 100%;
+    }
 }
